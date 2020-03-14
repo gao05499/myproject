@@ -12,6 +12,7 @@ wb_all = load_workbook('中国邮政储蓄银行湖北省分行营运用房装�
 
 def every_col(floor_num, excel_name):
     sheet_towrite_one_floor = wb_all[floor_num]
+    # wb_sub_one_floor = load_workbook(excel_name + '.xlsx', data_only=True)
     wb_sub_one_floor = load_workbook(excel_name + '.xlsx', data_only=True)
     sheet_toread_one_floor = wb_sub_one_floor['表-08 分部分项工程和单价措施项目清单与计价表']
 
@@ -26,9 +27,18 @@ def every_col(floor_num, excel_name):
 
 
 sheetnames_towrite = wb_all.sheetnames
-for i in range(1,23):
-    floor_num = sheetnames_towrite[i]
-    excel_name = sheetnames_towrite[i] + '工程'
-    every_col(floor_num, excel_name)
+# for i in range(1,23):
+# for i in range(24,29):
+#     floor_num = sheetnames_towrite[i]
+    # excel_name = sheetnames_towrite[i] + '工程'
+    # print(floor_num)
+    # every_col(floor_num, floor_num)
 
-wb_all.save('sample.xlsx')
+# for i in range(1,23):
+for i in range(28,29):
+    floor_num = sheetnames_towrite[i]
+    # excel_name = sheetnames_towrite[i] + '工程'
+    print(floor_num)
+    every_col(floor_num, floor_num)
+
+wb_all.save(floor_num + 'sample.xlsx')
